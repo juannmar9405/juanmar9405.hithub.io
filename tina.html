@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitación a la psicóloga más hermosa del mundo</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: linear-gradient(to right, #e618de, #1899e6);
+    }
+
+    #content {
+      text-align: center;
+      color: white;
+    }
+
+    .option {
+      margin: 0 10px;
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.3);
+      border: none;
+      border-radius: 5px;
+      color: white;
+    }
+
+    #no {
+      position: absolute;
+    }
+
+    #message {
+      display: none;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="content">
+    <h1>Invitación a la psicóloga más hermosa del mundo</h1>
+    <p>¿Quieres salir conmigo el próximo fin de semana?</p>
+    <button class="option" onclick="showMessage('si')">Sí</button>
+    <button id="no" class="option" onmouseover="moveNo()">No</button>
+    <p id="message">Conmigo tienes la vergüenza y las risas aseguradas.</p>
+  </div>
+
+  <script>
+    function showMessage(option) {
+      if (option === 'si') {
+        document.getElementById('message').style.display = 'block';
+        document.getElementById('no').style.display = 'none';
+      }
+    }
+
+    function moveNo() {
+      // Mueve la opción "No" de manera aleatoria al posicionar el puntero sobre ella.
+      const maxX = window.innerWidth - document.getElementById('no').offsetWidth;
+      const maxY = window.innerHeight - document.getElementById('no').offsetHeight;
+      const randomX = Math.floor(Math.random() * maxX);
+      const randomY = Math.floor(Math.random() * maxY);
+
+      document.getElementById('no').style.left = `${randomX}px`;
+      document.getElementById('no').style.top = `${randomY}px`;
+    }
+  </script>
+</body>
+</html>
